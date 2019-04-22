@@ -13715,17 +13715,6 @@ a.text-dark:focus {
   clip: auto;
 }
 
-/*
-// Dropzone
-@import '~dropzone/dist/min/dropzone.min.css';
-
-.dropzone {
-  margin-bottom: 20px;
-  min-height: auto;
-}
-//
-*/
-
 .container.front .card {
   min-width: 200px !important;
   max-width: 200px !important;

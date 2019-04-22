@@ -25,12 +25,9 @@ class HomeController extends Controller
     public function index()
     {
         $platforms = Platform::orderByDesc('rate')->get();
-        // $platform = new Platform();
-        // $platforms = $platform->all()->sortBy('rate')->get();
         return view('home',
                     [
                         'platforms' => $platforms,
-//                        'categories' => $categories,
 
                     ]);
         //return view('home');
