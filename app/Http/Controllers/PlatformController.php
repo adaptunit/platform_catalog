@@ -51,28 +51,23 @@ class PlatformController extends Controller
         $validate = $this->validator($request);
 
         $logoName = '';
-        $rate = Input::get('rate');
+        $rate = Input::get('rate', 0);
         $is_discount_enable = $request->has('is_discount_enable') ? true : false;
-
-        // print_r($is_discount_enable);
-        // dd($request->all());
-        // print_r($request); exit;
 
         if ($request->hasFile('logo'))
         {
             $fileName = $request->file('logo');
             $logoName = $this->createItemPicture($fileName, 'medium' );
-            // foreach ($request->file('logo') as $image) {
-            //    $this->createItemPicture($image, $product->id, $size );
-            //}
+
         }
+
         $platformCategories = $request->get('category');
 
         $platform = new Platform([
                         'name' => $request->get('name'),
                         'description' => $request->get('description', ''),
                         'link' => $request->get('link', ''),
-                        'rate' => $rate, // $request->get('rate', 0),
+                        'rate' => $rate,
                         'logo' => $logoName,
                         'is_discount_enable' => $is_discount_enable,
                     ]);

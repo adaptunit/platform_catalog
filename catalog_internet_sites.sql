@@ -66,7 +66,7 @@ CREATE TABLE `category_platform` (
 
 LOCK TABLES `category_platform` WRITE;
 /*!40000 ALTER TABLE `category_platform` DISABLE KEYS */;
-INSERT INTO `category_platform` VALUES (10,5,NULL,NULL),(11,4,NULL,NULL),(7,1,NULL,NULL),(11,3,NULL,NULL);
+INSERT INTO `category_platform` VALUES (10,5,NULL,NULL),(11,4,NULL,NULL),(7,1,NULL,NULL),(11,3,NULL,NULL),(10,6,NULL,NULL),(10,7,NULL,NULL),(11,8,NULL,NULL),(11,9,NULL,NULL),(11,10,NULL,NULL);
 /*!40000 ALTER TABLE `category_platform` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -137,7 +137,7 @@ CREATE TABLE `platforms` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -146,7 +146,7 @@ CREATE TABLE `platforms` (
 
 LOCK TABLES `platforms` WRITE;
 /*!40000 ALTER TABLE `platforms` DISABLE KEYS */;
-INSERT INTO `platforms` VALUES (1,'zxczxc','descr','/img/5cbddafa83490jpeg','https://www.instagram.com/',0,1,'2019-04-21 18:17:35','2019-04-22 15:18:06'),(3,'asdasdasdasd','descr','/img/13-24-625x469.jpg','https://unsplash.com/',0,1,'2019-04-21 19:55:37','2019-04-22 15:18:51'),(4,'poipoi','descr... descr...','/img/5cbddad5479ddjpg','https://google.com',3,0,'2019-04-22 07:16:42','2019-04-22 15:16:38'),(5,'google.com','descr... descr...','/img/5cbddea068ce8webp','https://google.com',0,1,'2019-04-22 07:19:51','2019-04-22 15:32:48');
+INSERT INTO `platforms` VALUES (1,'INsta Photos','descr','/img/5cbddafa83490jpeg','https://www.instagram.com/',0,1,'2019-04-21 18:17:35','2019-04-22 16:10:15'),(3,'UnSplashUnSplash','descr','/img/13-24-625x469.jpg','https://unsplash.com/',0,1,'2019-04-21 19:55:37','2019-04-22 16:12:09'),(4,'GoogLee','descr... descr...','/img/5cbddad5479ddjpg','https://google.com',0,0,'2019-04-22 07:16:42','2019-04-22 16:09:56'),(5,'google.com','descr... descr...','/img/5cbddea068ce8webp','https://google.com',0,1,'2019-04-22 07:19:51','2019-04-22 15:32:48'),(6,'Reddit for readies...','description to many text here...','/img/5cbde5b8473e9jpeg','https://www.reddit.com/',0,1,'2019-04-22 16:03:04','2019-04-22 16:11:38'),(7,'Cracked','cracked everywhere!','/img/5cbde629b539fjpeg','https://www.cracked.com/',2,1,'2019-04-22 16:04:58','2019-04-22 16:04:58'),(8,'Wait it now!','wait.. wait.. .. wait...','/img/5cbde664b60adjpeg','https://waitbutwhy.com/',1,0,'2019-04-22 16:05:57','2019-04-22 16:05:57'),(9,'On & Offf','onion description to onion site..','/img/5cbde69627f0cjpeg','https://www.theonion.com/',0,1,'2019-04-22 16:06:46','2019-04-22 16:11:52'),(10,'LifeWire','life is life...','/img/5cbde6fa72802jpeg','https://www.lifewire.com',1,1,'2019-04-22 16:08:26','2019-04-22 16:08:26');
 /*!40000 ALTER TABLE `platforms` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -190,4 +190,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-04-22 15:57:15
+-- Dump completed on 2019-04-22 16:12:57
