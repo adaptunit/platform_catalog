@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Platform;
 
 class HomeController extends Controller
 {
@@ -13,7 +14,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        // $this->middleware('auth');
     }
 
     /**
@@ -23,6 +24,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $platforms = Platform::orderByDesc('rate')->get();
+        // $platform = new Platform();
+        // $platforms = $platform->all()->sortBy('rate')->get();
+        return view('home',
+                    [
+                        'platforms' => $platforms,
+//                        'categories' => $categories,
+
+                    ]);
+        //return view('home');
     }
 }

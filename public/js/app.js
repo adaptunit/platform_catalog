@@ -61683,8 +61683,8 @@ if (document.getElementById('example')) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/android/WORK/PROJECT/LARAVEL/catalog-internet-sites/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/android/WORK/PROJECT/LARAVEL/catalog-internet-sites/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/android/WORK/PROJECT/LARAVEL/platform_catalog/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/android/WORK/PROJECT/LARAVEL/platform_catalog/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

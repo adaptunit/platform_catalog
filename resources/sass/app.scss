@@ -11,7 +11,7 @@
 $fa-font-path: "../../../node_modules/font-awesome/fonts" !default;
 
 @import 'node_modules/font-awesome/scss/font-awesome.scss';
-
+/*
 // Dropzone
 @import '~dropzone/dist/min/dropzone.min.css';
 
@@ -20,6 +20,88 @@ $fa-font-path: "../../../node_modules/font-awesome/fonts" !default;
   min-height: auto;
 }
 //
+*/
+
+$cardDefaultWidth: 200px;
+
+.container {
+    &.front {
+        .card {
+            min-width: $cardDefaultWidth !important;
+            max-width: $cardDefaultWidth !important;
+        }
+        .card-footer {
+            border: none !important;
+            padding: 0em 0em 0.3em 0em;
+            text-align: center;
+
+            .text-muted {
+                font-size: .6em;
+            }
+        }
+    }
+}
+
+.badge-percent {
+    position: absolute;
+    right: 2%;
+    top: 2%;
+}
+
+.badge-heart {
+    position: absolute;
+    left: 2%;
+    top: 2%;
+}
+
+.round {
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    background-color: #222;
+    color: #FFF;
+    text-align: center;
+
+    &.round-sm {
+        height: 20px;
+        width: 20px;
+        line-height: 20px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+        // font-size: 0.6em;
+    }
+    &.orange {
+        background-color: #FF6701;
+        i.fa {
+            color: #FFF;
+            font-size: 0.8em;
+        }
+    }
+
+    &.yellow {
+        background-color: transparent;
+        i.fa {
+            color: #FFC40C;
+            font-size: 1.1em;
+        }
+        &:hover {
+            color: #FF6701;
+            font-size: 1em;
+        }
+    }
+
+    &.yellow-o {
+        background-color: transparent;
+        i.fa {
+            color: #FFC40C;
+            font-size: 0.8em;
+        }
+    }
+}
+
 
 .navbar-laravel {
   background-color: #fff;
@@ -100,7 +182,7 @@ html {
 }
 
 /* card */
-
+/*
 .card {
     min-height: 100%;
     background: white;
@@ -113,12 +195,8 @@ html {
     top: 0;
     transition: all .1s ease-in;
 }
-/*
-.card:hover {
-top: -2px;
-box-shadow: 0 4px 5px rgba(0,0,0,0.2);
-}
-*/
+
+
 .card article {
     padding: 20px;
     display: flex;
@@ -135,10 +213,10 @@ box-shadow: 0 4px 5px rgba(0,0,0,0.2);
 }
 
 .card p {
-    flex: 1; /* make p grow to fill available space*/
+    flex: 1;
     line-height: 1.4;
 }
-
+*/
 /* typography */
 h1 {
     font-size: 20px;
