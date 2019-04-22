@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-// use QCod\ImageUp\HasImageUploads;
+use Config;
 use Session;
+use File;
 
 use Gumlet\ImageResize;
 use App\Platform;
@@ -14,8 +15,6 @@ use Illuminate\Support\Facades\Input;
 
 class PlatformController extends Controller
 {
-    // use HasImageUploads;
-
     const MIN_RATE = 0;
     const MAX_RATE = 10;
 
@@ -152,31 +151,33 @@ class PlatformController extends Controller
     {
         //
         $validate = $this->validator($request);
-/*
-        if ($validate->fails()) {
-            return Redirect::to('platform/' . $id)
-            ->withErrors($validator)
-            ->withInput($request->input());
-        } else {
-*/
-            // store Platform
-            $platform = Platform::find($id);
-            $platform->name                 = Input::get('name');
-            $platform->description          = Input::get('description');
-            $platform->link                 = Input::get('link');
-            $platform->rate                 = Input::get('rate');
-            $platform->is_discount_enable   = Input::has('is_discount_enable') ? true : false;
-            // $request->has('is_discount_enable') ? true : false;
 
-            // 'logo' => $logoName,
-            // 'is_discount_enable' => $is_discount_enabl
-            $platform->save();
-            $platformCategories = $request->get('category');
-            $platform->categories()->sync($platformCategories);
+        // store Platform
+        $platform = Platform::find($id);
+        $platform->name                 = Input::get('name');
+        $platform->description          = Input::get('description');
+        $platform->link                 = Input::get('link');
+        $platform->rate                 = Input::get('rate');
+        $platform->is_discount_enable   = Input::has('is_discount_enable') ? true : false;
 
-            Session::flash('message', 'Successfully update platform record...');
-            // return Redirect::to('platfrom');
-//        }
+        if ($request->hasFile('logo'))
+        {
+            $logoImg = $request->file('logo');
+            $previousPathLogo = public_path($platform->logo);
+            if (File::exists($previousPathLogo) && !is_dir($previousPathLogo)) {
+                unlink($previousPathLogo); //remove previous image
+            }
+
+            $fn = $this->createItemPicture($logoImg);
+            $platform->logo = $fn;
+
+        }
+
+        $platform->save();
+        $platformCategories = $request->get('category');
+        $platform->categories()->sync($platformCategories);
+
+        Session::flash('message', 'Successfully update platform record...');
 
         return redirect()->route('platform')->with(['alert' => 'info', 'message' => 'Edit successfull...']);
     }
@@ -190,6 +191,15 @@ class PlatformController extends Controller
     public function destroy($id)
     {
         //
+        $platform = Platform::findOrFail($id);
+        unlink(public_path($platform->logo));
+
+        $result = $platform->delete();
+        if ($result)
+        {
+            session()->flash('alert-info', "Platform with id: $id has been deleted");
+        }
+        return redirect()->route('platform');
     }
 
     private function validator(Request &$request) {
@@ -204,35 +214,23 @@ class PlatformController extends Controller
         ]);
     }
 
-    private function createItemPicture($image, string $size): array
+    private function createItemPicture($image)
     {
-/*
-        switch ($size)
-        {
-            case 'large':
-                $pixels = 450;
-                break;
-            case 'medium':
-                $pixels = 250;
-                break;
-            case 'small':
-            default:
-                $pixels = 110;
-                break;
-        }
-*/
-        $path = $image->store('public/img');
-        $filename = explode('/', $path);
-        $imageTool = new ImageResize(base_path('storage/app/'.$path));
-        $imageTool->resizeToLongSide($pixels);
-        $imageTool->save(base_path('storage/app/'.$path));
-        /*
-        ItemPicture::create([
-            'product_id' => $product_id,
-            'size' => $type,
-            'path' => implode('/', [$filename[1], $filename[2]])
-        ]);
-        */
-        return $filename;
+        $defaultWidth = Config::get('imageup.card.image.maxWidth', 300);
+        $relPath = Config::get('imageup.card.image.relPath', '/img/');
+
+        $path = $image->path();
+        $originalName = $image->getClientOriginalName();
+        $originalExt = $image->getClientOriginalExtension();
+        $newName = uniqid().$originalExt;
+        $relativeFileName = $relPath.$newName; //$originalName;
+        $public_path_img = public_path().$relativeFileName;
+        $imageTool = new ImageResize($path);
+
+        $imageTool->resizeToWidth($defaultWidth);
+
+        $filename = $imageTool->save($public_path_img);
+
+        return $relativeFileName;
     }
 }

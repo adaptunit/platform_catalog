@@ -13715,9 +13715,40 @@ a.text-dark:focus {
   clip: auto;
 }
 
+.container.front .custom-card {
+  text-decoration: none;
+  color: #666;
+}
+
+.container.front .custom-card:hover {
+  color: #333;
+}
+
 .container.front .card {
   min-width: 200px !important;
   max-width: 200px !important;
+  max-height: 260px !important;
+  min-height: 260px !important;
+  overflow: hidden;
+}
+
+.container.front .card .card-body {
+  padding: 0.5em 1.2em 1.2em 0.5em !important;
+}
+
+.container.front .card .card-text {
+  font-size: 0.8em;
+}
+
+.container.front .card-img-top {
+  -o-object-fit: none;
+     object-fit: none;
+  -o-object-position: center;
+     object-position: center;
+  width: 100%;
+  height: 120px;
+  max-height: 120px;
+  margin-bottom: 1rem;
 }
 
 .container.front .card-footer {

@@ -4,6 +4,7 @@
     <div class="{{$subClass}}_form-wrapper">
         {{ Form::open(['url' => ( $isEditMode ? ("platform/".$platform->id) : "platform"),
                        'method' => ( $isEditMode ? 'put' : 'post' ),
+                       'enctype' => 'multipart/form-data',
                        'id' => 'platform',
                        'class' => 'platform'])
         }}
@@ -57,10 +58,16 @@
             </div>
 
             <div class="field">
-                <i class="fa fa-image"></i>
+                @if($isEditMode && !empty($platform->logo))
+                    <a href="{{$platform->logo}}" onClick="" id="logoLink">
+                        <i class="fa fa-image" style="color: blue"></i>
+                    </a>
+                @else
+                    <i class="fa fa-image"></i>
+                @endif
                 <label data-error="wrong" data-success="right" for="category_id">Logo</label>
                 <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="logo" />
+                    <input type="file" name="logo" class="custom-file-input" id="logo" />
                     <label class="custom-file-label" for="logo" aria-describedby="logo">Choose image</label>
                 </div>
             </div>
@@ -90,6 +97,29 @@
                     document.getElementById('rate').value = this.value;
                 }
             }
+
+            var logoLink = document.getElementById('logoLink');
+            if (logoLink) {
+                logoLink.onclick = function(e) {
+                    imagepreview.src = this.href;
+                    var imagemodal = document.getElementById('imagemodal');
+                    $('#imagemodal').modal('show');
+                    return false;
+                }
+            }
         </script>
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-body">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <img src="" id="imagepreview" class="imagepreview" style="width: 100%;" >
+        </div>
+        </div>
     </div>
 </div>

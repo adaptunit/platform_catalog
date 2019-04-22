@@ -124,7 +124,7 @@ class CategoryController extends Controller
         $result = $category->delete();
         if ($result)
         {
-            session()->flash('alert-info', "Product with id: $id has been deleted");
+            session()->flash('alert-info', "Category with id: $id has been deleted");
         }
         // return response()->json(['status'=>'ok'], 200);
         return redirect()->route('category');

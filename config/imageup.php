@@ -28,5 +28,12 @@ return [
     /**
      * Set an image quality
      */
-    'resize_image_quality' => 80
+    'resize_image_quality' => 80,
+
+    'card' => [
+        'image' => [
+            'maxWidth' => '300',
+            'relPath'  => '/img/',
+        ],
+    ],
 ];

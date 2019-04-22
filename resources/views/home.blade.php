@@ -6,7 +6,7 @@
     <div class="card-deck">
 
     @foreach($platforms as $platform)
-
+        <a href="{{$platform->link}}" class="custom-card" target="_blank" rel="nofollow">
             <div class="card mb-2">
                 <div class="badge-heart round round-sm yellow">
                     <i class="fa fa-heart"></i>
@@ -14,7 +14,7 @@
                 @if(!empty($platform->logo))
                     <img class="card-img-top img-fluid" src="{{$platform->logo}}" alt="{{$platform->name}}">
                 @else
-                <img class="card-img-top img-fluid" src="/img/500x300.png" alt="{{$platform->name}}">
+                    <img class="card-img-top img-fluid" src="/img/500x300.png" alt="{{$platform->name}}">
                 @endif
                 <div class="card-body">
                     <h4 class="card-title">{{$platform->name}}</h4>
@@ -31,7 +31,7 @@
                     </div>
                 @endif
             </div>
-
+        </a>
     @endforeach
 
     </div>

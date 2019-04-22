@@ -37,7 +37,7 @@ CREATE TABLE `categories` (
 
 LOCK TABLES `categories` WRITE;
 /*!40000 ALTER TABLE `categories` DISABLE KEYS */;
-INSERT INTO `categories` VALUES (7,'123qwe1223qwe123','2019-04-20 12:22:10','2019-04-21 02:03:06'),(8,'qweqwe','2019-04-20 16:22:46','2019-04-20 16:22:46'),(10,'category0','2019-04-21 15:23:31','2019-04-22 07:02:58'),(11,'category10','2019-04-22 06:11:05','2019-04-22 06:11:32'),(12,'sdfsdfsdfwerrtwefsdfsdf','2019-04-22 06:18:52','2019-04-22 06:18:52'),(13,'azszxczxczxczxczxc','2019-04-22 07:00:18','2019-04-22 07:00:18');
+INSERT INTO `categories` VALUES (7,'123qwe1223qwe123','2019-04-20 12:22:10','2019-04-21 02:03:06'),(10,'category0','2019-04-21 15:23:31','2019-04-22 07:02:58'),(11,'category10','2019-04-22 06:11:05','2019-04-22 06:11:32'),(12,'sdfsdfsdfwerrtwefsdfsdf','2019-04-22 06:18:52','2019-04-22 06:18:52'),(13,'azszxczxczxczxczxc','2019-04-22 07:00:18','2019-04-22 07:00:18');
 /*!40000 ALTER TABLE `categories` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -66,7 +66,7 @@ CREATE TABLE `category_platform` (
 
 LOCK TABLES `category_platform` WRITE;
 /*!40000 ALTER TABLE `category_platform` DISABLE KEYS */;
-INSERT INTO `category_platform` VALUES (10,5,NULL,NULL),(11,4,NULL,NULL),(7,2,NULL,NULL);
+INSERT INTO `category_platform` VALUES (10,5,NULL,NULL),(11,4,NULL,NULL),(7,1,NULL,NULL),(11,3,NULL,NULL);
 /*!40000 ALTER TABLE `category_platform` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -146,7 +146,7 @@ CREATE TABLE `platforms` (
 
 LOCK TABLES `platforms` WRITE;
 /*!40000 ALTER TABLE `platforms` DISABLE KEYS */;
-INSERT INTO `platforms` VALUES (1,'zxczxc','descr','','http://localhost:8000/platform',5,1,'2019-04-21 18:17:35','2019-04-21 18:17:35'),(2,'Taras','descriptions....','','https://yahoo.com',0,0,'2019-04-21 18:19:50','2019-04-22 08:47:37'),(3,'asdasdasdasd','descr','','http://localhost:8000/platform2',5,1,'2019-04-21 19:55:37','2019-04-21 19:55:37'),(4,'poipoi','descr... descr...','','https://google.com',0,0,'2019-04-22 07:16:42','2019-04-22 08:46:46'),(5,'zxczxczxczxc11','descr... descr...','','https://google.com',3,1,'2019-04-22 07:19:51','2019-04-22 08:44:21');
+INSERT INTO `platforms` VALUES (1,'zxczxc','descr','/img/5cbddafa83490jpeg','https://www.instagram.com/',0,1,'2019-04-21 18:17:35','2019-04-22 15:18:06'),(3,'asdasdasdasd','descr','/img/13-24-625x469.jpg','https://unsplash.com/',0,1,'2019-04-21 19:55:37','2019-04-22 15:18:51'),(4,'poipoi','descr... descr...','/img/5cbddad5479ddjpg','https://google.com',3,0,'2019-04-22 07:16:42','2019-04-22 15:16:38'),(5,'google.com','descr... descr...','/img/5cbddea068ce8webp','https://google.com',0,1,'2019-04-22 07:19:51','2019-04-22 15:32:48');
 /*!40000 ALTER TABLE `platforms` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -190,4 +190,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-04-22 11:24:47
+-- Dump completed on 2019-04-22 15:57:15
