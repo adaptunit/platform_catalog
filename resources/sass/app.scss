@@ -16,11 +16,57 @@ $cardDefaultWidth: 200px;
 $cardDefaultHeight: 260px;
 $cardDefaultImageHeight: 120px;
 
+$colorBadgeBack: #FF6701;
+$colorBtnPrimary: #FF6701;
+
+.card-deck {
+    justify-content: center !important;
+/*
+    .card.empty {
+        // @extend .card;
+        border: 10px !important;
+    }
+    */
+}
+
 .container {
     &.front {
+        .categories {
+            padding-bottom: 2em;
+
+            a.category {
+                text-decoration: none;
+            }
+
+            .btn {
+                font-weight: 300;
+                font-size:  small;
+                border-color: $colorBtnPrimary;
+                color: $colorBadgeBack;
+
+                &:hover {
+                    background-color: $colorBtnPrimary;
+                    color: #FFF;
+                }
+
+                &.btn-rounded {
+                    border-radius: 35px;
+                }
+
+                &.btn-xs {
+                    padding: .4rem .4rem;
+                    font-size: .7rem;
+                    line-height: .5;
+                    margin: 0em .5em;
+                }
+            }
+        }
+
         .custom-card {
             text-decoration: none;
             color: #666;
+            justify-content: center;
+            display: flex;
 
             &:hover {
                 color: #333;
@@ -34,11 +80,52 @@ $cardDefaultImageHeight: 120px;
             min-height: $cardDefaultHeight !important;
             overflow: hidden;
 
-            .card-body {
-                padding: 0.5em 1.2em 1.2em .5em !important;
+            &.empty {
+                border: 0px !important;
             }
+
+            .card-clickable {
+                cursor: pointer;
+            }
+
+            .card-body {
+                padding: .2em .2em 0em .2em !important;
+            }
+
             .card-text {
                 font-size: .8em;
+                // position: absolute;
+                justify-content: center;
+                display: flex;
+            }
+
+            .card-title {
+                justify-content: center;
+                display: flex;
+                text-align: center;
+            }
+
+            a.vote {
+                color: #FFC40C;
+                font-size: 1.1em;
+                // color: #FFC40C;
+                -webkit-transition: font-size 1s, text-shadow 1s;
+                -moz-transition: font-size 1s, text-shadow 1s;
+                -o-transition: font-size 1s, text-shadow 1s;
+                transition: font-size 1s, text-shadow 1s;
+
+            }
+            a.vote:hover {
+                color: $colorBadgeBack !important;
+                font-size: 1.4em;
+                // color: $colorBadgeBack;
+                // box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+                text-shadow: -1px -1px 1px #FFF,  0 0 .5em #FFF, 0 0 0.2em #FFF;
+            }
+
+            .card-empty {
+                width: 100%;
+                min-width: 100%;
             }
         }
 
@@ -53,7 +140,7 @@ $cardDefaultImageHeight: 120px;
 
         .card-footer {
             border: none !important;
-            padding: 0em 0em 0.3em 0em;
+            padding: 0em 0em 0.1em 0em;
             text-align: center;
 
             .text-muted {
@@ -82,8 +169,8 @@ $cardDefaultImageHeight: 120px;
     line-height: 30px;
     -moz-border-radius: 15px;
     border-radius: 15px;
-    background-color: #222;
-    color: #FFF;
+    // background-color: #222;
+    // color: #FFF;
     text-align: center;
 
     &.round-sm {
@@ -95,13 +182,13 @@ $cardDefaultImageHeight: 120px;
         // font-size: 0.6em;
     }
     &.orange {
-        background-color: #FF6701;
+        background-color: $colorBadgeBack;
         i.fa {
             color: #FFF;
             font-size: 0.8em;
         }
     }
-
+/*
     &.yellow {
         background-color: transparent;
         i.fa {
@@ -109,17 +196,27 @@ $cardDefaultImageHeight: 120px;
             font-size: 1.1em;
         }
         &:hover {
-            color: #FF6701;
+            color: $colorBadgeBack;
             font-size: 1em;
         }
-    }
 
+    }
+*/
     &.yellow-o {
         background-color: transparent;
         i.fa {
             color: #FFC40C;
             font-size: 0.8em;
         }
+    }
+}
+
+.navbar-brand {
+    .logo {
+        font-size: 2em;
+        color: $colorBtnPrimary;
+        font-weight: 300;
+        padding-left: .1em;
     }
 }
 
@@ -132,6 +229,19 @@ $cardDefaultImageHeight: 120px;
 .navbar-nav {
     li:last-child {
         margin-left: 10%;
+    }
+    .nav-item {
+        .nav-link {
+            color: $colorBtnPrimary !important;
+/*
+            .dropdown-menu {
+                .dropdown-item {
+                    color: $colorBtnPrimary !important;
+                }
+            }
+*/
+        }
+
     }
 }
 
@@ -393,12 +503,12 @@ form.platform {
         color: #666;
     }
 }
-
+/*
 i.fa {
     font-size: small;
     color: #999;
 }
-
+*/
 .field {
     margin-bottom: 0.3rem;
 }
@@ -561,4 +671,3 @@ div.rating {
     }
 
 }
-

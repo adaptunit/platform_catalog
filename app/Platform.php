@@ -13,4 +13,13 @@ class Platform extends Model
     {
         return $this->belongsToMany(Category::class)->withPivot('category_id');
     }
+
+    public function scopeHasCategories($query, array $ids)
+    {
+        return $query->whereHas('categories', function ($q) use ($ids) {
+            $q->whereIn('category_id', $ids);
+        });
+    }
+
 }
+

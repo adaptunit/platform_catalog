@@ -13715,9 +13715,52 @@ a.text-dark:focus {
   clip: auto;
 }
 
+.card-deck {
+  justify-content: center !important;
+  /*
+      .card.empty {
+          // @extend .card;
+          border: 10px !important;
+      }
+      */
+}
+
+.container.front .categories {
+  padding-bottom: 2em;
+}
+
+.container.front .categories a.category {
+  text-decoration: none;
+}
+
+.container.front .categories .btn {
+  font-weight: 300;
+  font-size: small;
+  border-color: #FF6701;
+  color: #FF6701;
+}
+
+.container.front .categories .btn:hover {
+  background-color: #FF6701;
+  color: #FFF;
+}
+
+.container.front .categories .btn.btn-rounded {
+  border-radius: 35px;
+}
+
+.container.front .categories .btn.btn-xs {
+  padding: 0.4rem 0.4rem;
+  font-size: 0.7rem;
+  line-height: 0.5;
+  margin: 0em 0.5em;
+}
+
 .container.front .custom-card {
   text-decoration: none;
   color: #666;
+  justify-content: center;
+  display: flex;
 }
 
 .container.front .custom-card:hover {
@@ -13732,12 +13775,45 @@ a.text-dark:focus {
   overflow: hidden;
 }
 
+.container.front .card.empty {
+  border: 0px !important;
+}
+
+.container.front .card .card-clickable {
+  cursor: pointer;
+}
+
 .container.front .card .card-body {
-  padding: 0.5em 1.2em 1.2em 0.5em !important;
+  padding: 0.2em 0.2em 0em 0.2em !important;
 }
 
 .container.front .card .card-text {
   font-size: 0.8em;
+  justify-content: center;
+  display: flex;
+}
+
+.container.front .card .card-title {
+  justify-content: center;
+  display: flex;
+  text-align: center;
+}
+
+.container.front .card a.vote {
+  color: #FFC40C;
+  font-size: 1.1em;
+  transition: font-size 1s, text-shadow 1s;
+}
+
+.container.front .card a.vote:hover {
+  color: #FF6701 !important;
+  font-size: 1.4em;
+  text-shadow: -1px -1px 1px #FFF, 0 0 0.5em #FFF, 0 0 0.2em #FFF;
+}
+
+.container.front .card .card-empty {
+  width: 100%;
+  min-width: 100%;
 }
 
 .container.front .card-img-top {
@@ -13753,7 +13829,7 @@ a.text-dark:focus {
 
 .container.front .card-footer {
   border: none !important;
-  padding: 0em 0em 0.3em 0em;
+  padding: 0em 0em 0.1em 0em;
   text-align: center;
 }
 
@@ -13779,9 +13855,21 @@ a.text-dark:focus {
   width: 30px;
   line-height: 30px;
   border-radius: 15px;
-  background-color: #222;
-  color: #FFF;
   text-align: center;
+  /*
+      &.yellow {
+          background-color: transparent;
+          i.fa {
+              color: #FFC40C;
+              font-size: 1.1em;
+          }
+          &:hover {
+              color: $colorBadgeBack;
+              font-size: 1em;
+          }
+
+      }
+  */
 }
 
 .round.round-sm {
@@ -13800,20 +13888,6 @@ a.text-dark:focus {
   font-size: 0.8em;
 }
 
-.round.yellow {
-  background-color: transparent;
-}
-
-.round.yellow i.fa {
-  color: #FFC40C;
-  font-size: 1.1em;
-}
-
-.round.yellow:hover {
-  color: #FF6701;
-  font-size: 1em;
-}
-
 .round.yellow-o {
   background-color: transparent;
 }
@@ -13823,6 +13897,13 @@ a.text-dark:focus {
   font-size: 0.8em;
 }
 
+.navbar-brand .logo {
+  font-size: 2em;
+  color: #FF6701;
+  font-weight: 300;
+  padding-left: 0.1em;
+}
+
 .navbar-laravel {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
@@ -13830,6 +13911,17 @@ a.text-dark:focus {
 
 .navbar-nav li:last-child {
   margin-left: 10%;
+}
+
+.navbar-nav .nav-item .nav-link {
+  color: #FF6701 !important;
+  /*
+              .dropdown-menu {
+                  .dropdown-item {
+                      color: $colorBtnPrimary !important;
+                  }
+              }
+  */
 }
 
 html {
@@ -14075,10 +14167,12 @@ form.platform label {
   color: #666;
 }
 
+/*
 i.fa {
-  font-size: small;
-  color: #999;
+    font-size: small;
+    color: #999;
 }
+*/
 
 .field {
   margin-bottom: 0.3rem;
