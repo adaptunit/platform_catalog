@@ -18,34 +18,34 @@ Route::get('/', function (){
 });
 
 Route::prefix('home')->group(function (){
-    Route::get('/', 'HomeController@index')->name('home');
-    Route::get('/category/{id}', 'HomeController@category')->name('category.platform');
+    Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/category/{id}', [App\Http\Controllers\HomeController::class, 'category'])->name('category.platform');
 });
 
-Route::get('/admin','AdminController@index')->name('admin');
+Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])->name('admin');
 
 Route::prefix('admin')->group(function (){
-    Route::get('/', 'AdminController@index')->name('admin_index');
+    Route::get('/', [App\Http\Controllers\AdminController::class, 'index'])->name('admin_index');
 });
 
 Route::prefix('category')->group(function (){
-    Route::get('/', 'CategoryController@index')->name('category');
-    Route::post('/', 'CategoryController@create')->name('create');
-    Route::get('/{id}', 'CategoryController@edit')->name('edit');
-    Route::put('/{id}', 'CategoryController@update')->name('update');
-    Route::delete('/{id}', 'CategoryController@destroy')->name('destroy');
+    Route::get('/', [App\Http\Controllers\CategoryController::class, 'index'])->name('category');
+    Route::post('/', [App\Http\Controllers\CategoryController::class, 'create'])->name('create');
+    Route::get('/{id}', [App\Http\Controllers\CategoryController::class, 'edit'])->name('edit');
+    Route::put('/{id}', [App\Http\Controllers\CategoryController::class, 'update'])->name('update');
+    Route::delete('/{id}', [App\Http\Controllers\CategoryController::class, 'destroy'])->name('destroy');
 });
 
 Route::prefix('platform')->group(function (){
-    Route::get('/', 'PlatformController@index')->name('platform');
-    Route::post('/', 'PlatformController@create')->name('create');
-    Route::get('/{id}', 'PlatformController@edit')->name('edit');
-    Route::put('/{id}', 'PlatformController@update')->name('update');
-    Route::delete('/{id}', 'PlatformController@destroy')->name('destroy');
+    Route::get('/', [App\Http\Controllers\PlatformController::class, 'index'])->name('platform');
+    Route::post('/', [App\Http\Controllers\PlatformController::class, 'create'])->name('create');
+    Route::get('/{id}', [App\Http\Controllers\PlatformController::class, 'edit'])->name('edit');
+    Route::put('/{id}', [App\Http\Controllers\PlatformController::class, 'update'])->name('update');
+    Route::delete('/{id}', [App\Http\Controllers\PlatformController::class, 'destroy'])->name('destroy');
 });
 
-// Route::post('file/upload', 'FileController@store')->name('file.upload');
-Route::post('upload', 'FileController@upload')->name('upload');
+// Route::post('file/upload', [App\Http\Controllers\FileController::class, 'store'])->name('file.upload');
+Route::post('upload', [App\Http\Controllers\FileController::class, 'upload'])->name('upload');
 
 Auth::routes();
 
