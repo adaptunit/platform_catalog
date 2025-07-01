@@ -1,38 +1,21 @@
 {
     "private": true,
+    "type": "module",
     "scripts": {
-        "dev": "npm run development",
-        "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "watch": "npm run development -- --watch",
-        "watch-poll": "npm run watch -- --watch-poll",
-        "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "prod": "npm run production",
-        "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+        "build": "vite build",
+        "dev": "vite",
+        "vite": "vite"
     },
     "devDependencies": {
-        "@babel/preset-react": "^7.0.0",
-        "axios": "^0.21",
-        "bootstrap": "^4.0.0",
-        "breakpoint-sass": "^2.7.1",
-        "compass": "^0.1.1",
-        "cross-env": "^5.1",
-        "jquery": "^3.5",
-        "laravel-mix": "^4.0.7",
-        "lodash": "^4.17.21",
-        "mixin-loader": "^2.0.3",
-        "popper.js": "^1.12",
-        "react": "^16.2.0",
-        "react-dom": "^16.2.0",
-        "resolve-url-loader": "^2.3.1",
-        "sass": "^1.15.2",
-        "sass-loader": "^7.1.0",
-        "vue-template-compiler": "^2.6.10"
+        "@popperjs/core": "^2.11.6",
+        "axios": "^1.7.0",
+        "bootstrap": "^5.3.0",
+        "laravel-vite-plugin": "^1.0",
+        "sass": "^1.56.1",
+        "vite": "^7.0.0"
     },
     "dependencies": {
-        "breakpoint-sass": "^2.7.1",
-        "compass": "^0.1.1",
-        "dropzone": "^5.5.1",
-        "font-awesome": "^4.7.0",
-        "laravel-elixir-sass-compass": "^0.5.0"
+        "@fortawesome/fontawesome-free": "^6.4.0",
+        "dropzone": "^6.0.0-beta.2"
     }
 }

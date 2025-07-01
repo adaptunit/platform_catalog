@@ -165,9 +165,6 @@ return [
         /*
          * Package Service Providers...
          */
-//        Collective\Html\HtmlServiceProvider::class,\
-        Kris\LaravelFormBuilder\FormBuilderServiceProvider::class,
-        QCod\ImageUp\ImageUpServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -230,19 +227,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
-//        'Form' => Collective\Html\FormFacade::class,
-//        'Html' => Collective\Html\HtmlFacade::class,
-        'FormBuilder' => Kris\LaravelFormBuilder\Facades\FormBuilder::class
+
     ],
 
-    'extensions' => [
-        'star-rating' => [
-            // set to false if you want to disable this extension
-            'enable' => true,
-            // configuration
-            'config' => [
-                'min' => 1, 'max' => 5, 'step' => 1, 'size' => 'xs', 'language' => 'zh',
-            ]
-        ]
-    ],
+
 ];
