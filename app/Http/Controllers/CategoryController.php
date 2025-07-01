@@ -3,11 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Routing\Redirector;
-// namespace App\Http\Controllers\Auth;
-
-// use App\Http\Controllers\Controller;
-// use Illuminate\Foundation\Auth\AuthenticatesUsers;
-
 use Illuminate\Http\Request;
 use App\Category;
 
@@ -108,7 +103,7 @@ class CategoryController extends Controller
         $category->name = $request->get('name');
         $category->save();
 
-        return redirect()->route('category')->with(['alert' => 'info', 'message' => 'Edit successfull...']);
+        return redirect()->route('category')->with(['alert' => 'info', 'message' => 'Edit successful...']);
     }
 
     /**
@@ -127,7 +122,6 @@ class CategoryController extends Controller
         {
             session()->flash('alert-info', "Category with id: $id has been deleted");
         }
-        // return response()->json(['status'=>'ok'], 200);
         return redirect()->route('category');
     }
 
@@ -135,7 +129,7 @@ class CategoryController extends Controller
     private function validator(Request &$request)
     {
         return $request->validate([
-            'name' => 'required | max:255'
+            'name' => 'required|max:255'
         ]);
     }
 }

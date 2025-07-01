@@ -24,7 +24,7 @@
             <div class="field">
                 <i class="fa fa-link"></i>
                 <label data-error="wrong" data-success="right" for="link">Link</label>
-                <input value="{{ $isEditMode ? $platform->link : ''}}" type="text" id="description" name="link" class="form-control validate">
+                <input value="{{ $isEditMode ? $platform->link : ''}}" type="text" id="link" name="link" class="form-control validate">
             </div>
 
 

@@ -10,8 +10,6 @@ use File;
 use Gumlet\ImageResize;
 use App\Platform;
 use App\Category;
-// use Request;
-use Illuminate\Support\Facades\Input;
 
 class PlatformController extends Controller
 {
@@ -52,7 +50,7 @@ class PlatformController extends Controller
         $validate = $this->validator($request);
 
         $logoName = '';
-        $rate = Input::get('rate', 0);
+        $rate = $request->get('rating', 0);
         $is_discount_enable = $request->has('is_discount_enable') ? true : false;
 
         if ($request->hasFile('logo'))
@@ -150,11 +148,11 @@ class PlatformController extends Controller
 
         // store Platform
         $platform = Platform::find($id);
-        $platform->name                 = Input::get('name');
-        $platform->description          = Input::get('description');
-        $platform->link                 = Input::get('link');
-        $platform->rate                 = Input::get('rate');
-        $platform->is_discount_enable   = Input::has('is_discount_enable') ? true : false;
+        $platform->name                 = $request->get('name');
+        $platform->description          = $request->get('description');
+        $platform->link                 = $request->get('link');
+        $platform->rate                 = $request->get('rating');
+        $platform->is_discount_enable   = $request->has('is_discount_enable') ? true : false;
 
         if ($request->hasFile('logo'))
         {
@@ -175,7 +173,7 @@ class PlatformController extends Controller
 
         Session::flash('message', 'Successfully update platform record...');
 
-        return redirect()->route('platform')->with(['alert' => 'info', 'message' => 'Edit successfull...']);
+        return redirect()->route('platform')->with(['alert' => 'info', 'message' => 'Edit successful...']);
     }
 
     /**
@@ -188,7 +186,10 @@ class PlatformController extends Controller
     {
         //
         $platform = Platform::findOrFail($id);
-        unlink(public_path($platform->logo));
+        $logoPath = public_path($platform->logo);
+        if (File::exists($logoPath) && !is_dir($logoPath)) {
+            unlink($logoPath);
+        }
 
         $result = $platform->delete();
         if ($result)
@@ -200,13 +201,12 @@ class PlatformController extends Controller
 
     private function validator(Request &$request) {
         return $request->validate([
-            'name' => 'required | max:255',
-            'description' => 'max:1000', // 65535
-            'logo.*' => 'image | mimes:jpeg,png,jpg,gif | max:2048',
-            'category.*'  => 'integer',
-            'rate' => 'string',
+            'name' => 'required|max:255',
+            'description' => 'max:1000',
+            'logo.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'category.*' => 'integer',
+            'rating' => 'integer|min:0|max:10',
             'is_discount_enable' => 'boolean'
-            // 'rate' => 'integer | min:0 | max:10',
         ]);
     }
 
