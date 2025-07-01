@@ -188,7 +188,14 @@ class PlatformController extends Controller
     {
         //
         $platform = Platform::findOrFail($id);
-        unlink(public_path($platform->logo));
+        
+        // Safely delete logo file if it exists
+        if (!empty($platform->logo)) {
+            $logoPath = public_path($platform->logo);
+            if (File::exists($logoPath) && !is_dir($logoPath)) {
+                unlink($logoPath);
+            }
+        }
 
         $result = $platform->delete();
         if ($result)
