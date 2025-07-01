@@ -33,7 +33,7 @@ Route::prefix('category')->group(function (){
     Route::post('/', 'CategoryController@create')->name('create');
     Route::get('/{id}', 'CategoryController@edit')->name('edit');
     Route::put('/{id}', 'CategoryController@update')->name('update');
-    Route::get('/delete/{id}', 'CategoryController@destroy')->name('destroy');
+    Route::delete('/{id}', 'CategoryController@destroy')->name('destroy');
 });
 
 Route::prefix('platform')->group(function (){
@@ -41,7 +41,7 @@ Route::prefix('platform')->group(function (){
     Route::post('/', 'PlatformController@create')->name('create');
     Route::get('/{id}', 'PlatformController@edit')->name('edit');
     Route::put('/{id}', 'PlatformController@update')->name('update');
-    Route::get('/delete/{id}', 'PlatformController@destroy')->name('destroy');
+    Route::delete('/{id}', 'PlatformController@destroy')->name('destroy');
 });
 
 // Route::post('file/upload', 'FileController@store')->name('file.upload');
